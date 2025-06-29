@@ -14,13 +14,13 @@ echo "Checking if git and stow are available..."
 which git
 if [[ $? -eq 1 ]]; then
     echo "Git is not installed"
-    $GIT_OR_STOW_INSTALLED=0
+    GIT_OR_STOW_INSTALLED=0
 fi
 
 which stow
 if [[ $? -eq 1 ]]; then
     echo "Stow is not installed"
-    $GIT_OR_STOW_INSTALLED=0
+    GIT_OR_STOW_INSTALLED=0
 fi
 
 if [[ $GIT_OR_STOW_INSTALLED -eq 0 ]]; then
