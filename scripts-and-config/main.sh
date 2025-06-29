@@ -1,9 +1,13 @@
 #!/bin/bash
 
-DOTFILES_REPO="git@github.com:hayeseoin/dotfiles.git"
+GIT_ENDPOINT="git@github.com:hayeseoin"
+if [[ "$1" == 'http' ]]; then
+        GIT_ENDPOINT="https://github.com/hayeseoin"
+fi
+DOTFILES_REPO="$GIT_ENDPOINT/dotfiles.git"
 DOTFILES_REPO_NAME="dotfiles"
 
-UTILS_AND_SCRIPTS_REPO="git@github.com:hayeseoin/utils-and-scripts.git"
+UTILS_AND_SCRIPTS_REPO="$GIT_ENDPOINT/utils-and-scripts.git"
 UTILS_AND_SCRIPTS_REPO_NAME=".utils-and-scripts"
 UTILS_AND_SCRIPTS_MODE="" # system or local
 
