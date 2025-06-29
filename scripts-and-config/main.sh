@@ -27,6 +27,9 @@ if [[ $GIT_OR_STOW_INSTALLED -eq 0 ]]; then
     exit 1
 fi
 
+# Suprress git ssh check
+ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+
 # Dotfiles - deploy repo if not already done
 
 # Validate git connection
@@ -71,20 +74,20 @@ echo "Connected to git."
 
 echo 'Checking uitils and scripts directory exists'
 if [[ ! -d $HOME/$UTILS_AND_SCRIPTS_REPO_NAME ]]; then
-    echo "Dotfiles directory doesn't exist, creating it."
+    echo "utils and scripts directory doesn't exist, creating it."
     git clone $UTILS_AND_SCRIPTS_REPO $HOME/$UTILS_AND_SCRIPTS_REPO_NAME
     if [[ $? -ne 0 ]]; then
         echo "Failed to clone repository"
         exit 1
     fi
 fi
-echo 'Dotfiles directory exists.'
+echo 'utils and scripts directory exists.'
 
 if [[ ! -d $HOME/$UTILS_AND_SCRIPTS_REPO_NAME/.git ]]; then
-    echo 'Dotfiles exists but is not a git repo, exiting...'
+    echo 'utils and scripts exists but is not a git repo, exiting...'
     exit 1
 fi
-echo "Dotfiles directory is a git repo."
+echo "utils and scripts directory is a git repo."
 
 # utils-and-scripts - run internal setup script
 $HOME/$UTILS_AND_SCRIPTS_REPO_NAME/linux/setup/main.sh
