@@ -28,6 +28,8 @@ if [[ $GIT_OR_STOW_INSTALLED -eq 0 ]]; then
 fi
 
 # Suprress git ssh check
+# original known hosts needs to be restored later
+cp $HOME/.ssh/known_hosts $HOME/.ssh/known_hosts_bootstrap_backup
 ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 
 # Dotfiles - deploy repo if not already done
@@ -92,3 +94,6 @@ echo "utils and scripts directory is a git repo."
 # utils-and-scripts - run internal setup script
 $HOME/$UTILS_AND_SCRIPTS_REPO_NAME/linux/setup/main.sh
 
+# Restore known hosts
+rm -f $HOME/.ssh/known_hosts
+mv $HOME/.ssh/known_hosts_bootstrap_backup $HOME/.ssh/known_hosts
