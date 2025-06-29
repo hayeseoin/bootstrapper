@@ -37,23 +37,23 @@ fi
 echo "Connected to git."
 
 
-# Dotfiles - deploy repo if not already done
-echo 'Checking dotfiles directory exists'
-if [[ ! -d $HOME/$DOTFILES_REPO_NAME ]]; then
-    echo "Dotfiles directory doesn't exist, creating it."
-    git clone $DOTFILES_REPO $HOME/$DOTFILES_REPO_NAME
-    if [[ $? -ne 0 ]]; then
-        echo "Failed to clone repository"
-        exit 1
-    fi
-fi
-echo 'Dotfiles directory exists.'
+# # Dotfiles
+# echo 'Checking dotfiles directory exists'
+# if [[ ! -d $HOME/$DOTFILES_REPO_NAME ]]; then
+#     echo "Dotfiles directory doesn't exist, creating it."
+#     git clone $DOTFILES_REPO $HOME/$DOTFILES_REPO_NAME
+#     if [[ $? -ne 0 ]]; then
+#         echo "Failed to clone repository"
+#         exit 1
+#     fi
+# fi
+# echo 'Dotfiles directory exists.'
 
-if [[ ! -d $HOME/$DOTFILES_REPO_NAME/.git ]]; then
-    echo 'Dotfiles exists but is not a git repo, exiting...'
-    exit 1
-fi
-echo "Dotfiles directory is a git repo."
+# if [[ ! -d $HOME/$DOTFILES_REPO_NAME/.git ]]; then
+#     echo 'Dotfiles exists but is not a git repo, exiting...'
+#     exit 1
+# fi
+# echo "Dotfiles directory is a git repo."
 
-# Dotfiles - run internal setup script
-$HOME/$DOTFILES_REPO_NAME/setup/main.sh
+# # Dotfiles setup script
+# $HOME/$DOTFILES_REPO_NAME/setup/main.sh
