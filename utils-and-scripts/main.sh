@@ -9,7 +9,7 @@ if [[ "$1" == 'http' ]]; then
 fi
 
 GIT_REPO="utils-and-scripts"
-DIRECTORY_TARGET_NAME=".utils-and-scripts'
+DIRECTORY_TARGET_NAME=".utils-and-scripts"
 GIT_REPO_URL="$GIT_ENDPOINT/$GIT_REPO.git"
 GIT_REPO_TARGET="$HOME/$DIRECTORY_TARGET_NAME"
 SETUP_SCRIPT="$GIT_REPO_TARGET/linux/setup/main.sh"
