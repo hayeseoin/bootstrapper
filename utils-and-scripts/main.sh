@@ -4,18 +4,17 @@ GIT_ENDPOINT="git@github.com:hayeseoin"
 GIT_ACCESS="ssh"
 
 if [[ "$1" == 'http' ]]; then
-    GIT_PAT=$2
-    GIT_ENDPOINT="https://$GIT_PAT@github.com/hayeseoin"
+    GIT_ENDPOINT="https://github.com/hayeseoin"
     GIT_ACCESS="http"
 fi
 
-GIT_REPO="dotfiles"
+GIT_REPO="utils-and-scripts"
 GIT_REPO_URL="$GIT_ENDPOINT/$GIT_REPO.git"
 GIT_REPO_TARGET="$HOME/.dotfiles"
-SETUP_SCRIPT="$GIT_REPO_TARGET/setup/main.sh"
+SETUP_SCRIPT="$GIT_REPO_TARGET/linux/setup/main.sh"
 
 # Check git and stow are installed
-GIT_OR_STOW_INSTALLED=1
+GIT_INSTALLED=1
 echo "Checking if git and stow are available..."
 which git
 if [[ $? -eq 1 ]]; then
@@ -23,13 +22,7 @@ if [[ $? -eq 1 ]]; then
     GIT_OR_STOW_INSTALLED=0
 fi
 
-which stow
-if [[ $? -eq 1 ]]; then
-    echo "Stow is not installed"
-    GIT_OR_STOW_INSTALLED=0
-fi
-
-if [[ $GIT_OR_STOW_INSTALLED -eq 0 ]]; then
+if [[ $GIT_INSTALLED -eq 0 ]]; then
     exit 1
 fi
 
