@@ -39,6 +39,7 @@ if $GIT_ACCESS == ssh; then
     fi
     cp $HOME/.ssh/known_hosts $HOME/.ssh/known_hosts_bootstrap_backup
     ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+fi
 
 echo "Checking git connection..."
 git ls-remote $GIT_REPO_URL > /dev/null 2>&1
