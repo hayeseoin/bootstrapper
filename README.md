@@ -12,16 +12,16 @@ curl -s https://hayeseoin.github.io/bootstrapper-wip/dotfiles/main.sh| bash
 ```
 Dotfiles - [`https://github.com/hayeseoin/dotfiles`](https://github.com/hayeseoin/dotfiles)
 
-## [Utilities and Scripts](/utils-and-scripts/)
+## [Linux Toolkit](/utils-and-scripts/)
 
 Deploys my linux toolkit to `~/.utils-and-scripts/linux` including aliases. Public
 
 ### Deploy:
 ```sh
 # SSH
-curl -s https://hayeseoin.github.io/bootstrapper-wip/utils-and-scripts/main.sh | bash
+curl -s https://hayeseoin.github.io/bootstrapper-wip/linux-toolkit/main.sh | bash
 
 # HTTP
-curl -s https://hayeseoin.github.io/bootstrapper-wip/utils-and-scripts/main.sh | bash -s http
+curl -s https://hayeseoin.github.io/bootstrapper-wip/linux-toolkit/main.sh | bash -s http
 ```
 Toolkit - [`https://github.com/hayeseoin/utils-and-scripts`](https://github.com/hayeseoin/utils-and-scripts)

@@ -17,13 +17,13 @@ SETUP_SCRIPT="$GIT_REPO_TARGET/setup/main.sh"
 # Check git and stow are installed
 GIT_OR_STOW_INSTALLED=1
 echo "Checking if git and stow are available..."
-which git
+which git > /dev/null 2>&1
 if [[ $? -eq 1 ]]; then
     echo "Git is not installed"
     GIT_OR_STOW_INSTALLED=0
 fi
 
-which stow
+which stow > /dev/null 2>&1
 if [[ $? -eq 1 ]]; then
     echo "Stow is not installed"
     GIT_OR_STOW_INSTALLED=0
@@ -34,7 +34,7 @@ if [[ $GIT_OR_STOW_INSTALLED -eq 0 ]]; then
 fi
 
 # Supress git ssh check
-if "$GIT_ACCESS" == ssh; then
+if [[ "$GIT_ACCESS" == "ssh" ]]; then
     if [ ! -f "$HOME/.ssh/known_hosts" ]; then
         touch "$HOME/.ssh/known_hosts"
     fi
@@ -72,7 +72,7 @@ echo "Running setup script."
 $SETUP_SCRIPT
 
 # Restore known hosts
-if "$GIT_ACCESS" == ssh; then
+if [[ "$GIT_ACCESS" == "ssh" ]]; then
     rm -f $HOME/.ssh/known_hosts
     mv $HOME/.ssh/known_hosts_bootstrap_backup $HOME/.ssh/known_hosts
 fi
