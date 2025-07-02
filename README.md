@@ -8,7 +8,7 @@ Deploys my preferred dotfiles config. Private repo.
 
 ### Deploy command: 
 ```sh
-curl -s https://hayeseoin.github.io/bootstrapper-wip/dotfiles/main.sh| bash
+curl -s https://hayeseoin.github.io/bootstrapper-wip/dotfiles/main.sh | bash
 ```
 Dotfiles - [`https://github.com/hayeseoin/dotfiles`](https://github.com/hayeseoin/dotfiles)
 
