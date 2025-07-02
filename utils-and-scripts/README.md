@@ -8,6 +8,16 @@ Toolkit - [`https://github.com/hayeseoin/utils-and-scripts`](https://github.com/
 
 Packages: git
 
+Configure shell to read aliases from `~/.profile.d`
+> Important: ALiases are stored as seperate files in `~/.profile.d`, so it's importantt that the shell checks this directory. This can be done by adding the following to `~/.bashrc`
+> ```sh
+> if [ -d "$HOME/.profile.d" ]; then
+>  for file in "$HOME/.profile.d"/*.sh; do
+>    [ -r "$file" ] && [ -f "$file" ] && . "$file"
+>  done
+> fi
+> ```
+
 ## Deploy command
 
 ```sh
